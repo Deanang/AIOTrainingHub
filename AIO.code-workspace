@@ -2,6 +2,15 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "Starter Problem 1"
+		},
+		{
+			"path": "Starter Problem 2"
+		},
+		{
+			"path": "Starter Problem 3"
 		}
 	],
 	"settings": {}
