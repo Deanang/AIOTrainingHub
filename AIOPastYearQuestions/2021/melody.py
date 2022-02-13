@@ -18,8 +18,6 @@ N = None
 # K is the largest number which could be a note.
 K = None
 
-
-
 answer = None
 
 # Open the input and output files.
@@ -33,20 +31,23 @@ N, K = map(int, input_line.split())
 # S contains the sequence of notes forming the song.
 S = [None for x in range(N)]
 
-# Read each note in the song.
-for i in range(0, N):
-    S[i] = int(input_file.readline().strip())
+D = [dict(), dict(), dict()]
 
+# Read each note in the song.
+for i in range(0, N, 3):
+    for j in range(3):
+        n = int(input_file.readline().strip())
+        if not n in D[j]:
+            D[j][n] = 1
+        else:
+            D[j][n] += 1
+M = [max(D[j].values()) for j in range(3)]
+answer = sum(( sum(D[j].values()) - M[j] for j in range(3) ))
 
 # TODO: This is where you should compute your solution. Store the smallest
 # possible number of notes Melody can change so that her song is nice into the
 # variable answer.
-M, m = [None, None, None], [None, None, None]
-for i in range(3):
-    M[i] = S[i::3]
-    m[i] = max(set(M[i]), key = M[i].count)
-answer = len([x for x in M[0] if x != m[0]]) + len([x for x in M[1] if x != m[1]]) + len([x for x in M[2] if x != m[2]])
-print(answer)
+
 # Write the answer to the output file.
 output_file.write("%d\n" % (answer))
 
