@@ -14,7 +14,6 @@ sys.setrecursionlimit(1000000000)
 
 # N is the number of holes.
 N = None
-
 answer = None
 
 # Open the input and output files.
@@ -25,18 +24,17 @@ output_file = open("artout.txt", "w")
 N = int(input_file.readline().strip())
 
 # x and y contain the locations of the holes.
-X = [None for x in range(N)]
-Y = [None for x in range(N)]
+x = [None for x in range(N)]
+y = [None for x in range(N)]
 
 # Read the location of each hole.
 for i in range(0, N):
     input_line = input_file.readline().strip()
-    X[i], Y[i] = map(int, input_line.split())
-
+    x[i], y[i] = map(int, input_line.split())
 
 # TODO: This is where you should compute your solution. Store the area of the
 # smallest poster that will cover all the holes into the variable answer.
-answer = ( max(X) - min(X) ) * ( max(Y) - min(Y))
+answer = (max(x) - min(x)) * (max(y) - min(y))
 # Write the answer to the output file.
 output_file.write("%d\n" % (answer))
 
