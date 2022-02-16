@@ -31,12 +31,10 @@ instrs = input_file.readline().strip()
 # TODO: This is where you should compute your solution. Store the fewest number
 # of instructions you need to add to the end of the sequence into the variable
 # answer.
-print(instrs.count('E') )
-answer = abs( instrs.count('E') - instrs.count('W')) + abs( instrs.count('N') - instrs.count('S'))
 
 # Write the answer to the output file.
 output_file.write("%d\n" % (answer))
 
 # Finally, close the input/output files.
 input_file.close()
-output_file.close() 
+output_file.close()
